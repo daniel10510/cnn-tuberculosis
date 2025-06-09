@@ -5,68 +5,63 @@ El desarrollo se realizó en **Google Colab** utilizando TensorFlow y técnicas 
 
 ---
 
-## 📂 Estructura del Proyecto
+## 📂 Contenido del Repositorio
 
-El código fuente se organiza en bloques funcionales, cubriendo todo el pipeline de desarrollo:
+| Archivo / Carpeta          | Descripción                                                                 |
+|----------------------------|-----------------------------------------------------------------------------|
+| `archivos-pruebas-modelo/`                  | Carpeta que contiene archivos para pruebas a partir del modelo H5 generado                            |
+| `dataset/`                      | Carpeta que contiene el dataset de imágenes                                  |
+| `video-desarrollo-implementacion-pruebas/`                  | Carpeta que contiene el video de desarrollo, implementacion y pruebas                            |
+| `proyecto-final.ipynb`     | Notebook de Google Colab con todo el código fuente del proyecto             |
+| `README.md`                | Documento actual con la descripción del proyecto                             |
 
-### 1️⃣ Carga y Visualización Básica del Dataset
-- Montaje de Google Drive
-- Carga del dataset desde la carpeta `DS`
-- Visualización de imágenes y clases detectadas
+---
 
-### 2️⃣ Exploración Técnica del Dataset
-- Conteo de imágenes por clase
-- Análisis de balance de clases
-- Identificación de tipos de archivos
-- Visualización gráfica de la distribución del dataset
+## 📌 Descripción
 
-### 3️⃣ Definición del Modelo CNN con Aumentación de Datos
-- Red convolucional personalizada
-- Capas de normalización y aumentación de datos
-- Capas de extracción y clasificación
-- Compilación del modelo
+El modelo fue entrenado utilizando un conjunto de imágenes de tórax clasificadas como:
 
-### 4️⃣ Entrenamiento del Modelo
-- Aplicación de pesos para clases desbalanceadas
-- Entrenamiento con validación
-- Gráfica de evolución de precisión y pérdida
+- **Normal** 🫁
+- **Tuberculosis (TB)** 🦠
 
-### 5️⃣ Evaluación del Modelo
-- Generación de matriz de confusión
-- Reporte de métricas de clasificación: *precision*, *recall*, *F1-score*
+Se implementaron las siguientes etapas:
 
-### 6️⃣ Prueba con Imágenes Manuales
-- Inferencia sobre imágenes nuevas contenidas en la carpeta `Prueba`
-- Reporte detallado por imagen con nivel de confianza
+✅ Preprocesamiento de imágenes  
+✅ Balanceo de clases mediante **SMOTE**  
+✅ Construcción de una arquitectura **CNN**  
+✅ Entrenamiento y evaluación del modelo  
+✅ Desarrollo de una interfaz interactiva con **ipywidgets** para predicción en línea  
 
 ---
 
 ## 🛠️ Tecnologías Utilizadas
 
-- [Google Colab](https://colab.research.google.com/)
-- [TensorFlow 2.x](https://www.tensorflow.org/)
-- Python 3.x
-- Scikit-learn
-- Matplotlib
-- Seaborn
-- Pandas
+- **Python 3**
+- **TensorFlow / Keras**
+- **OpenCV**
+- **NumPy**
+- **imbalanced-learn** (SMOTE)
+- **scikit-learn**
+- **matplotlib**
+- **ipywidgets**
+- **Google Colab**
 
 ---
 
-## 📊 Resultados Esperados
+## 🏗️ Arquitectura del Modelo
 
-- Clasificación automática en 2 categorías:
-  - **Normal**
-  - **Tuberculosis**
-- Matriz de confusión para evaluar desempeño
-- Precisión esperada en validación superior al 90% (dependiendo del dataset)
+- 3 capas convolucionales (**Conv2D**) con activación **ReLU**
+- Capa de **MaxPooling** después de cada capa convolucional
+- Capa **Flatten** para conectar con capas densas
+- Capa densa con 64 neuronas y activación **ReLU**
+- Capa de **Dropout** para evitar sobreajuste
+- Capa de salida con activación **sigmoid** para clasificación binaria (Normal / Tuberculosis)
 
 ---
 
 ## 📁 Dataset
 
-- Las imágenes se encuentran en la carpeta al interior del archivo ZIP `DS.zip` con subcarpetas por clase.
-- Las imágenes de prueba se ubican en la carpeta `Prueba`.
+- Las imágenes se encuentran en la carpeta al interior del archivo ZIP `dataset/Dataset of Tuberculosis Chest X-rays Images.zip` con subcarpetas por clase.
 
 > ⚠️ Nota: El dataset se incluye en este repositorio. Deberás cargarlo en Google Drive siguiendo la misma estructura.
 
@@ -80,19 +75,13 @@ El código fuente se organiza en bloques funcionales, cubriendo todo el pipeline
     git clone https://github.com/tu_usuario/tu_repositorio.git
     ```
 
-2. Sube el código `ProyectoFinal_RASS.ipynb` a Google Colab.
+2. Sube el código `proyecto-final.ipynb` a Google Colab.
 
-3. Carga el archivo `DS.zip` al mismo nivel que el archivo `ProyectoFinal_RASS.ipynb`
+3. Carga el archivo `dataset/Dataset of Tuberculosis Chest X-rays Images.zip` al repositorio colab.
    
-4. Monta Google Drive y ajusta las rutas de `DS` y `Prueba` según tu Drive.
+4. Monta Google Drive y ajusta las rutas del `dataset` según tu Drive.
 
 5. Ejecuta cada bloque secuencialmente:
-
-    - Bloques 1 y 2 → Exploración
-    - Bloque 3 → Definición de la red
-    - Bloque 4 → Entrenamiento
-    - Bloque 5 → Evaluación
-    - Bloque 6 → Inferencias manuales
 
 ---
 
