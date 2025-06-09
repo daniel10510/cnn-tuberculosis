@@ -11,6 +11,7 @@ El desarrollo se realizó en **Google Colab** utilizando TensorFlow y técnicas 
 |----------------------------|-----------------------------------------------------------------------------|
 | `archivos-pruebas-modelo/`                  | Carpeta que contiene archivos para pruebas a partir del modelo H5 generado                            |
 | `dataset/`                      | Carpeta que contiene el dataset de imágenes                                  |
+| `informe/`                      | Carpeta que contiene el informe                                 |
 | `video-desarrollo-implementacion-pruebas/`                  | Carpeta que contiene el video de desarrollo, implementacion y pruebas                            |
 | `proyecto-final.ipynb`     | Notebook de Google Colab con todo el código fuente del proyecto             |
 | `README.md`                | Documento actual con la descripción del proyecto                             |
